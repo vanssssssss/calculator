@@ -24,27 +24,28 @@ let keysHTML = '';
 
 keys.forEach((key) => {
     let html = `
-    <p>
-        <button class="number-button js-button" data-key="${key.first}">
-        ${key.first}</button>
-        <button class="number-button js-button" data-key="${key.sec}">
-        ${key.sec}</button>
-        <button class="number-button js-button" data-key="${key.third}">
-        ${key.third}</button>
-        <button class="operator-button js-button " data-key="${key.fourth}">
-        ${key.fourth}</button>
-    </p>
+        <p>
+            <button class="number-button js-button" data-key="${key.first}">
+            ${key.first}</button>
+            <button class="number-button js-button" data-key="${key.sec}">
+            ${key.sec}</button>
+            <button class="number-button js-button" data-key="${key.third}">
+            ${key.third}</button>
+            <button class="operator-button js-button " data-key="${key.fourth}">
+            ${key.fourth}</button>
+        </p>
     `;
     keysHTML += html;
-    // console.log(keysHTML);
 });
+
 document.querySelector('.keys').innerHTML = keysHTML;
+let res= localStorage.getItem('res') || "";
+document.querySelector('.js-res').innerHTML = `${res}`;
 
 document.querySelectorAll('.js-button').forEach( (button) =>{
     console.log(button);
     button.addEventListener('click' , () => {
         const key = button.dataset.key;
-        console.log(key);
         updatestr(key);
     });
 });
@@ -56,19 +57,15 @@ document.querySelector('.js-clear-button').addEventListener('click',() => {
     document.querySelector('.js-res').innerHTML = `0.00`;
 });
 
-let res= localStorage.getItem('res') || "";
-document.querySelector('.js-res').innerHTML = `${res}`;
-
 function updatestr(c){
-
     if(c === ' = '){
         res = eval(res);
         document.querySelector('.js-res').innerHTML = `${res}`;
         localStorage.setItem('res',res);
     }else{
-    res += c;
-    document.querySelector('.js-res').innerHTML = `${res}`;
-    localStorage.setItem('res',res);
+        res += c;
+        document.querySelector('.js-res').innerHTML = `${res}`;
+        localStorage.setItem('res',res);
     }
 }
 
