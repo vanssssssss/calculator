@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(11, 11, 11);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 60px;
+}
+
+.number-button,.operator-button{
+    background-color: rgb(47, 46, 46);
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50em;
+    border: none;
+    margin-right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.operator-button{
+    background-color: rgb(254, 160, 10);
+}
+
+.result,.heading{
+    font-size: 30px;
+    font-weight: bold;
+}
